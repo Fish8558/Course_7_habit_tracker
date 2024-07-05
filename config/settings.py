@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_yasg',
     'django_celery_beat',
+    'corsheaders',
 
     'users',
     'habits',
@@ -165,3 +166,14 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': timedelta(minutes=1),  # Расписание выполнения задачи (например, каждые 10 минут)
     },
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "https://localhost:8000",  # Замените на адрес фронтенд-сервера
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://127.0.0.1:8000',  # Замените на адрес фронтенд-сервера
+    'http://localhost:8000'  # и добавьте адрес бэкенд-сервера
+]
+
+CORS_ALLOW_ALL_ORIGINS = False
