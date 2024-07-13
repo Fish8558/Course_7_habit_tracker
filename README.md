@@ -55,7 +55,7 @@ pip install -r requirements.txt
 ```text
 # Postgresql
 POSTGRES_ENGINE="postgresql_psycopg2" - используем psycopg
-POSTGRES_NAME="db_name" - название вашей БД
+POSTGRES_DB="db_name" - название вашей БД
 POSTGRES_USER="postgres" - имя пользователя БД
 POSTGRES_PASSWORD="secret" - пароль пользователя БД
 POSTGRES_HOST="host" - можно указать "localhost" или "127.0.0.1"
@@ -69,7 +69,7 @@ DEBUG=True - режим DEBUG
 TELEGRAM_API_KEY='secret key' - секретный ключ для подключения бота Telegram  
 
 # Redis
-REDIS_HOST=redis://host:port/0 - данные хост:порт redis
+REDIS=redis://redis:6379 - данные redis
 ```
 
 #### 4. Настройка БД:
@@ -103,7 +103,7 @@ brew install redis;
 
 ### Использование
 
-Для запуска проекта наберите в терминале команду:
+> Для запуска локально проекта наберите в терминале команду:
 
 ```text
 python manage.py runserver
@@ -120,3 +120,14 @@ celery -A config worker -l INFO
 ```text
 celery -A config beat -l INFO
 ```
+
+> Для запуска проекта через Docker:
+
+- установите Docker себе в систему, перейдя по [ссылке](https://docs.docker.com/engine/install/)
+- для сборки проекта и запуска введите команду:
+
+```text
+docker-compose up -d --build
+```
+
+- перейдите по адресу: [http://127.0.0.1:8000](http://127.0.0.1:8000)
